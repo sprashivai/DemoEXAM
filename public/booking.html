@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование - Конференции.РФ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Конференции.РФ</h1>
+            <p>Всероссийская платформа для бронирования помещений</p>
+        </div>
+        
+        <div class="nav">
+            <a href="index.html" class="nav-link">Главная</a>
+            <a href="login.html" class="nav-link">Вход</a>
+            <a href="register.html" class="nav-link">Регистрация</a>
+            <a href="profile.html" class="nav-link">Личный кабинет</a>
+            <a href="booking.html" class="nav-link active">Бронирование</a>
+            <a href="admin.html" class="nav-link">Админ панель</a>
+            <button id="logoutBtn" class="logout-btn">Выход</button>
+        </div>
+        
+        <div class="content">
+            <div class="form-card">
+                <h2>Новая заявка на бронирование</h2>
+                <div class="form-group">
+                    <label>Выберите помещение</label>
+                    <select id="roomSelect">
+                        <option value="">-- Выберите помещение --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Дата проведения (ДД.ММ.ГГГГ)</label>
+                    <input type="text" id="bookingDate" placeholder="25.12.2026">
+                </div>
+                <div class="form-group">
+                    <label>Время начала</label>
+                    <select id="startTime">
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Способ оплаты</label>
+                    <select id="paymentMethod">
+                        <option value="Наличными">Наличными</option>
+                        <option value="Банковская карта">Банковская карта</option>
+                        <option value="Безналичный расчет">Безналичный расчет</option>
+                    </select>
+                </div>
+                <button id="createBookingBtn" class="btn-primary">Отправить заявку</button>
+                <div id="bookingMessage" class="message"></div>
+            </div>
+            
+            <div class="rooms-info">
+                <h3>Доступные помещения</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Название</th>
+                                <th>Тип</th>
+                                <th>Вместимость</th>
+                                <th>Цена/час</th>
+                            </tr>
+                        </thead>
+                        <tbody id="roomsTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/booking.js"></script>
+</body>
+</html>

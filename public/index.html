@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Конференции.РФ - Главная</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
 </head>
 <body>
     <div class="container">
@@ -24,17 +25,146 @@
         </div>
         
         <div class="content">
-            <div class="form-card" style="text-align:center; max-width:800px;">
+            <div class="slider-container">
+                <div class="slider" id="mainSlider">
+                    <div class="slide">
+                        <img src="./images/1.jpg" alt="Слайд 1">
+                        <div class="slide-caption">
+                            <h3>Всероссийские конференции</h3>
+                            <p>Лучшие площадки для проведения мероприятий</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="./images/2.jpg" alt="Слайд 2">
+                        <div class="slide-caption">
+                            <h3>Современные аудитории</h3>
+                            <p>Оснащенные по последнему слову техники</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="./images/3.jpg" alt="Слайд 3">
+                        <div class="slide-caption">
+                            <h3>Комфортные коворкинги</h3>
+                            <p>Пространство для продуктивной работы</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="./images/4.jpg" alt="Слайд 4">
+                        <div class="slide-caption">
+                            <h3>Вместительные кинозалы</h3>
+                            <p>Идеально для масштабных конференций</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-prev" id="sliderPrev">◀</button>
+                <button class="slider-next" id="sliderNext">▶</button>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+            
+            <div class="info-block">
                 <h2>Добро пожаловать на портал Конференции.РФ</h2>
-                <p style="margin:20px 0;">Система бронирования помещений для проведения Всероссийских конференций</p>
-                <p style="margin:10px 0;">Аудитории  Коворкинги  Кинозалы</p>
+                <p>Система бронирования помещений для проведения Всероссийских конференций</p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>🏛️ Аудитории</h3>
+                        <p>От 50 до 80 мест</p>
+                    </div>
+                    <div class="feature">
+                        <h3>💼 Коворкинги</h3>
+                        <p>От 30 до 45 мест</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🎬 Кинозалы</h3>
+                        <p>От 120 до 200 мест</p>
+                    </div>
+                </div>
                 <div style="margin-top:25px;">
-                    <a href="login.html" style="background:#2c5a6e; color:white; padding:10px 25px; border-radius:8px; text-decoration:none;">Войти</a>
-                    <a href="register.html" style="background:#1a3a4a; color:white; padding:10px 25px; border-radius:8px; text-decoration:none; margin-left:15px;">Регистрация</a>
+                    <a href="login.html" class="btn-primary" style="display:inline-block; width:auto; margin-right:15px;">Войти</a>
+                    <a href="register.html" class="btn-primary" style="display:inline-block; width:auto; background:#1a3a4a;">Регистрация</a>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('mainSlider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('sliderPrev');
+            const nextBtn = document.getElementById('sliderNext');
+            const dotsContainer = document.getElementById('sliderDots');
+            
+            let currentIndex = 0;
+            let slideInterval;
+            const totalSlides = slides.length;
+            const intervalTime = 3000;
+            
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (i === currentIndex) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+            
+            function updateDots() {
+                const dots = document.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            function goToSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentIndex = index;
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateDots();
+                resetInterval();
+            }
+            
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+            
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+            
+            function startAutoSlide() {
+                slideInterval = setInterval(nextSlide, intervalTime);
+            }
+            
+            function resetInterval() {
+                clearInterval(slideInterval);
+                startAutoSlide();
+            }
+            
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            
+            createDots();
+            startAutoSlide();
+            
+            const sliderContainer = document.querySelector('.slider-container');
+            if (sliderContainer) {
+                sliderContainer.addEventListener('mouseenter', () => {
+                    clearInterval(slideInterval);
+                });
+                
+                sliderContainer.addEventListener('mouseleave', () => {
+                    startAutoSlide();
+                });
+            }
+        });
+    </script>
+    
     <script src="js/main.js"></script>
 </body>
 </html>
