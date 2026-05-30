@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - Конференции.РФ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Конференции.РФ</h1>
+            <p>Всероссийская платформа для бронирования помещений</p>
+        </div>
+        
+        <div class="nav">
+            <a href="index.html" class="nav-link">Главная</a>
+            <a href="login.html" class="nav-link">Вход</a>
+            <a href="register.html" class="nav-link">Регистрация</a>
+            <a href="profile.html" class="nav-link active">Личный кабинет</a>
+            <a href="booking.html" class="nav-link">Бронирование</a>
+            <a href="admin.html" class="nav-link">Админ панель</a>
+            <button id="logoutBtn" class="logout-btn">Выход</button>
+        </div>
+        
+        <div class="content">
+            <div class="user-info" id="userInfo">
+                <h2>Добро пожаловать, <span id="userName"></span></h2>
+            </div>
+            
+            <h3>Мои заявки на бронирование</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Помещение</th>
+                            <th>Тип</th>
+                            <th>Дата</th>
+                            <th>Время</th>
+                            <th>Оплата</th>
+                            <th>Статус</th>
+                            <th>Отзыв</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsTable"></tbody>
+                </table>
+            </div>
+            
+            <div class="review-section">
+                <h4>Оставить отзыв</h4>
+                <div class="form-group">
+                    <label>Выберите завершенное мероприятие</label>
+                    <select id="reviewBookingSelect">
+                        <option value="">-- Выберите мероприятие --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Ваш отзыв</label>
+                    <textarea id="reviewText" rows="4" placeholder="Поделитесь впечатлениями..."></textarea>
+                </div>
+                <button id="submitReviewBtn" class="btn-primary">Отправить отзыв</button>
+                <div id="reviewMessage" class="message"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/profile.js"></script>
+</body>
+</html>

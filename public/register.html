@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - Конференции.РФ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Конференции.РФ</h1>
+            <p>Всероссийская платформа для бронирования помещений</p>
+        </div>
+        
+        <div class="nav">
+            <a href="index.html" class="nav-link">Главная</a>
+            <a href="login.html" class="nav-link">Вход</a>
+            <a href="register.html" class="nav-link active">Регистрация</a>
+            <a href="profile.html" class="nav-link">Личный кабинет</a>
+            <a href="booking.html" class="nav-link">Бронирование</a>
+            <a href="admin.html" class="nav-link">Админ панель</a>
+            <button id="logoutBtn" class="logout-btn" style="display:none;">Выход</button>
+        </div>
+        
+        <div class="content">
+            <div class="form-card">
+                <h2>Регистрация</h2>
+                <div class="form-group">
+                    <label>Логин (латиница и цифры, мин 6 символов)</label>
+                    <input type="text" id="regLogin" placeholder="example123">
+                    <span class="error-hint" id="loginHint"></span>
+                </div>
+                <div class="form-group">
+                    <label>Пароль (мин 8 символов)</label>
+                    <input type="password" id="regPassword" placeholder="********">
+                    <span class="error-hint" id="passwordHint"></span>
+                </div>
+                <div class="form-group">
+                    <label>ФИО (только кириллица)</label>
+                    <input type="text" id="regFullname" placeholder="Иванов Иван Иванович">
+                    <span class="error-hint" id="fullnameHint"></span>
+                </div>
+                <div class="form-group">
+                    <label>Телефон (8(XXX)XXX-XX-XX)</label>
+                    <input type="text" id="regPhone" placeholder="8(999)123-45-67">
+                    <span class="error-hint" id="phoneHint"></span>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="regEmail" placeholder="example@mail.ru">
+                    <span class="error-hint" id="emailHint"></span>
+                </div>
+                <button id="registerBtn" class="btn-primary">Зарегистрироваться</button>
+                <div class="auth-link">
+                    <a href="login.html">Уже есть аккаунт? Войти</a>
+                </div>
+                <div id="registerMessage" class="message"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>

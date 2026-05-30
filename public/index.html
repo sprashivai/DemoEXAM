@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Конференции.РФ - Главная</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>test
-    
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Конференции.РФ</h1>
+            <p>Всероссийская платформа для бронирования помещений</p>
+        </div>
+        
+        <div class="nav">
+            <a href="index.html" class="nav-link active">Главная</a>
+            <a href="login.html" class="nav-link">Вход</a>
+            <a href="register.html" class="nav-link">Регистрация</a>
+            <a href="profile.html" class="nav-link">Личный кабинет</a>
+            <a href="booking.html" class="nav-link">Бронирование</a>
+            <a href="admin.html" class="nav-link">Админ панель</a>
+            <button id="logoutBtn" class="logout-btn" style="display:none;">Выход</button>
+        </div>
+        
+        <div class="content">
+            <div class="form-card" style="text-align:center; max-width:800px;">
+                <h2>Добро пожаловать на портал Конференции.РФ</h2>
+                <p style="margin:20px 0;">Система бронирования помещений для проведения Всероссийских конференций</p>
+                <p style="margin:10px 0;">Аудитории  Коворкинги  Кинозалы</p>
+                <div style="margin-top:25px;">
+                    <a href="login.html" style="background:#2c5a6e; color:white; padding:10px 25px; border-radius:8px; text-decoration:none;">Войти</a>
+                    <a href="register.html" style="background:#1a3a4a; color:white; padding:10px 25px; border-radius:8px; text-decoration:none; margin-left:15px;">Регистрация</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 </html>
