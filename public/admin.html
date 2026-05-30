@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ панель - Конференции.РФ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Конференции.РФ</h1>
+            <p>Всероссийская платформа для бронирования помещений</p>
+        </div>
+        
+        <div class="nav">
+            <a href="index.html" class="nav-link">Главная</a>
+            <a href="login.html" class="nav-link">Вход</a>
+            <a href="register.html" class="nav-link">Регистрация</a>
+            <a href="profile.html" class="nav-link">Личный кабинет</a>
+            <a href="booking.html" class="nav-link">Бронирование</a>
+            <a href="admin.html" class="nav-link active">Админ панель</a>
+            <button id="logoutBtn" class="logout-btn">Выход</button>
+        </div>
+        
+        <div class="content">
+            <div class="form-card">
+                <h2>Вход в панель администратора</h2>
+                <div class="form-group">
+                    <label>Логин</label>
+                    <input type="text" id="adminLogin"  >
+                </div>
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <input type="password" id="adminPassword" placeholder="">
+                </div>
+                <button id="adminAuthBtn" class="btn-primary">Войти</button>
+                <div id="adminAuthMessage" class="message"></div>
+            </div>
+            
+            <div id="adminPanel" style="display:none;">
+                <div class="admin-controls">
+                    <div class="filter-group">
+                        <label>Фильтр по статусу:</label>
+                        <select id="statusFilter">
+                            <option value="all">Все</option>
+                            <option value="Новая">Новая</option>
+                            <option value="Мероприятие назначено">Мероприятие назначено</option>
+                            <option value="Мероприятие завершено">Мероприятие завершено</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Поиск:</label>
+                        <input type="text" id="searchInput" placeholder="Пользователь, помещение...">
+                    </div>
+                    <div class="pagination-controls">
+                        <button id="prevPage">◀ Назад</button>
+                        <span id="pageInfo">Страница 1</span>
+                        <button id="nextPage">Вперед ▶</button>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Пользователь</th>
+                                <th>Помещение</th>
+                                <th>Тип</th>
+                                <th>Дата</th>
+                                <th>Время</th>
+                                <th>Оплата</th>
+                                <th>Статус</th>
+                                <th>Отзыв</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminBookingsTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>
